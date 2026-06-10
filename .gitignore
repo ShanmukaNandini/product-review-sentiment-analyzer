@@ -12,4 +12,4 @@ build/
 .env
 
 # macOS
-.DS_Store
+.DS_Storebackend/reviews.csv
