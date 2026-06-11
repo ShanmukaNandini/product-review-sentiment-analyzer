@@ -7,6 +7,12 @@ import io
 from flask import send_file
 app = Flask(__name__)
 CORS(app)
+@app.route("/")
+def home():
+    return {
+        "status": "online",
+        "message": "Product Review Sentiment Analyzer API is running!"
+    }
 
 # Load trained model and vectorizer
 model = joblib.load("model/sentiment_model.pkl")
