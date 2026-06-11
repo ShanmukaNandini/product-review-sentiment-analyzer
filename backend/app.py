@@ -59,6 +59,11 @@ def analyze_csv():
 
         df = pd.read_csv(file)
 
+        if len(df) > 100000:
+            return jsonify({
+                'error': 'Please upload a CSV with fewer than 100,000 reviews.'
+            }), 400
+
         # Find review column automatically
         possible_columns = ['Text', 'Review', 'Review Text', 'review']
 
@@ -75,28 +80,41 @@ def analyze_csv():
             }), 400
         
         reviews = df[review_column].fillna('').astype(str)
-        review_vectors = vectorizer.transform(reviews)
 
-        predictions = model.predict(review_vectors)
+        predictions = []
+        confidences = []
 
-        # Calculate confidence scores
-        probabilities = model.predict_proba(review_vectors)
+        batch_size = 1000
 
-        confidences = probabilities.max(axis=1)
+        for i in range(0, len(reviews), batch_size):
+            batch = reviews.iloc[i:i + batch_size]
 
-        average_confidence = round(confidences.mean() * 100, 2)
+            vectors = vectorizer.transform(batch)
+
+            batch_predictions = model.predict(vectors)
+
+            batch_probabilities = model.predict_proba(vectors)
+
+            batch_confidences = batch_probabilities.max(axis=1)
+
+            predictions.extend(batch_predictions)
+            confidences.extend(batch_confidences)
+
+        average_confidence = round(
+            (sum(confidences) / len(confidences)) * 100, 2
+        ) if confidences else 0
 
         summary = {
           'total_reviews': len(predictions),
-          'positive': int((predictions == 'Positive').sum()),
-          'negative': int((predictions == 'Negative').sum()),
-          'neutral': int((predictions == 'Neutral').sum()),
+          'positive': predictions.count('Positive'),
+          'negative': predictions.count('Negative'),
+          'neutral': predictions.count('Neutral'),
           'average_confidence': average_confidence
         }
         results_df = pd.DataFrame({
             'Review': reviews,
             'Prediction': predictions,
-            'Confidence': (confidences * 100).round(2)
+            'Confidence': [round(conf * 100, 2) for conf in confidences]
         })
 
         results_df.to_csv("analysis_report.csv", index=False)
