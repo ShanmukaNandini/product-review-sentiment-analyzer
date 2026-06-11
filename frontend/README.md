@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# SentiScope - Product Review Sentiment Analyzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SentiScope is a full-stack machine learning web application that analyzes product reviews and predicts their sentiment as **Positive**, **Negative**, or **Neutral**.
 
-## Available Scripts
+Built using **React.js**, **Flask**, and **Scikit-learn**, the application supports both single-review predictions and bulk CSV sentiment analysis with downloadable reports and interactive visualizations.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Analyze individual product reviews instantly
+* Upload CSV datasets containing thousands of reviews
+* Predict sentiments using a Logistic Regression model
+* Display confidence scores for predictions
+* Download detailed CSV analysis reports
+* Interactive dashboard with sentiment visualizations
+* Automatic review column detection in uploaded datasets
+* Modern responsive user interface
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
 
-### `npm run build`
+* React.js
+* Axios
+* Chart.js
+* CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Flask
+* Flask-CORS
+* Pandas
+* Joblib
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Machine Learning
 
-### `npm run eject`
+* Scikit-learn
+* TF-IDF Vectorization
+* Logistic Regression
+* Naive Bayes
+* Linear SVM (model comparison)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Machine Learning Pipeline
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Load Amazon product review dataset
+2. Preprocess review text
+3. Convert text into numerical features using TF-IDF
+4. Train multiple classification models:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   * Logistic Regression
+   * Naive Bayes
+   * Linear SVM
+5. Evaluate model performance
+6. Deploy the best-performing model for predictions
 
-## Learn More
+### Model Performance
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Model               | Accuracy |
+| ------------------- | -------- |
+| Logistic Regression | 85.14%   |
+| Naive Bayes         | 80.85%   |
+| Linear SVM          | 85.27%   |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Selected Model:** Logistic Regression
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Screenshots
 
-### Analyzing the Bundle Size
+### Single Review Analysis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![alt text](<Screenshot 2026-06-11 at 4.31.58 PM.png>)
 
-### Making a Progressive Web App
+### Bulk CSV Analysis Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![alt text](<Screenshot 2026-06-11 at 4.32.52 PM.png>)
 
-### Advanced Configuration
+### Generated CSV Report
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![alt text](<Screenshot 2026-06-11 at 4.33.23 PM.png>)
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Installation
 
-### `npm run build` fails to minify
+### Clone the Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/ShanmukaNandini/product-review-sentiment-analyzer.git
+cd product-review-sentiment-analyzer
+```
+
+### Backend Setup
+
+```bash
+cd backend
+
+pip install -r requirements.txt
+
+python app.py
+```
+
+Backend runs on:
+
+```text
+http://127.0.0.1:5000
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+
+npm install
+
+npm start
+```
+
+Frontend runs on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## CSV Format
+
+The uploaded CSV should contain one of the following columns:
+
+* Review
+* review
+* Text
+* Review Text
+
+Example:
+
+| Review                               |
+| ------------------------------------ |
+| This product is amazing!             |
+| Terrible quality and poor packaging. |
+
+---
+
+## Future Improvements
+
+* Deploy application using Vercel and Render
+* Add deep learning models (LSTM/BERT)
+* Support additional languages
+* User authentication and history tracking
+
+---
+
+## Author
+
+**Shanmuka Nandini**
+
+B.Tech Computer Science Student | Aspiring AI Engineer
