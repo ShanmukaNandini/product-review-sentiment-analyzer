@@ -1,185 +1,163 @@
-# Product Review Sentiment Analyzer
+# 🧠 Product Review Sentiment Analyzer
 
-A full-stack sentiment analysis application that classifies product reviews as **Positive**, **Negative**, or **Neutral** using Natural Language Processing (NLP).
+A full-stack Machine Learning application that analyzes product reviews and predicts sentiment using Natural Language Processing (NLP). The application supports both single review analysis and bulk CSV analysis with interactive visualizations and downloadable reports.
+
+---
 
 ## 🚀 Features
 
-- Analyze product reviews in real time
-- Classify reviews into:
-  - Positive 😃
-  - Negative 😞
-  - Neutral 😐
-- Display sentiment polarity scores
-- React-based interactive frontend
-- Flask REST API backend
-- TextBlob-powered sentiment analysis
-- Error handling for invalid inputs and server issues
+* Analyze individual product reviews in real-time.
+* Upload CSV datasets for bulk sentiment analysis.
+* Confidence score generation for predictions.
+* Interactive dashboard with Pie Charts and Bar Charts.
+* Downloadable sentiment analysis reports.
+* Automatic review column detection in CSV files.
+* Comparison of multiple Machine Learning models.
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React.js
-- JavaScript
-- HTML/CSS
+
+* React.js
+* Recharts
+* JavaScript
+* HTML/CSS
 
 ### Backend
-- Flask
-- Flask-CORS
 
-### NLP & Data Processing
-- TextBlob
-- NLTK
+* Flask
+* Flask-CORS
+* Pandas
+* Joblib
 
-### Version Control
-- Git
-- GitHub
+### Machine Learning
 
----
-
-## 📸 Screenshots
-
-### Positive Sentiment Analysis
-![Positive Result](screenshots/positive.png)
-
-### Negative Sentiment Analysis
-![Negative Result](screenshots/negative.png)
-
-### Neutral Sentiment Analysis
-![Neutral Result](screenshots/neutral.png)
+* Scikit-learn
+* TF-IDF Vectorization
+* Logistic Regression
+* Linear SVM
+* Naive Bayes
 
 ---
 
-## 📂 Project Structure
+## 📊 Dataset
+
+* Amazon Fine Food Reviews Dataset
+* 568,454 product reviews
+* Reviews collected from October 1999 to October 2012
+
+For model training, a subset of 50,000 reviews was used to optimize training time while maintaining performance.
+
+---
+
+## 🏆 Model Performance
+
+| Model               | Accuracy |
+| ------------------- | -------- |
+| Linear SVM          | 85.27%   |
+| Logistic Regression | 85.14%   |
+| Naive Bayes         | 80.85%   |
+
+**Selected Model:** Logistic Regression
+
+Although Linear SVM achieved the highest accuracy, Logistic Regression was selected because it provides probability estimates required for confidence scoring while maintaining comparable performance.
+
+---
+
+## ⚙️ System Architecture
 
 ```text
-sentimentanalyzer/
-├── backend/
-│   ├── app.py
-│   └── requirements.txt
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.js
-│   │   └── App.css
-│   └── package.json
-│
-├── screenshots/
-├── .gitignore
-└── README.md
+Amazon Reviews Dataset
+        ↓
+Data Preprocessing
+        ↓
+TF-IDF Vectorization
+        ↓
+Logistic Regression Model
+        ↓
+Flask REST API
+        ↓
+React Frontend
+        ↓
+Interactive Dashboard & Reports
 ```
 
 ---
 
-## ⚙️ Installation and Setup
+## 📈 Features Implemented
 
-### 1. Clone the Repository
+* [x] Single Review Sentiment Analysis
+* [x] Bulk CSV Sentiment Analysis
+* [x] Confidence Score Prediction
+* [x] Interactive Dashboard Visualizations
+* [x] Downloadable Analysis Reports
+* [x] Machine Learning Model Comparison
+* [x] Git Feature Branch Workflow
+
+---
+
+## 📷 Screenshots
+
+### Dashboard
+
+(Add dashboard screenshot here)
+
+### Single Review Prediction
+
+(Add prediction screenshot here)
+
+### Downloadable Analysis Report
+
+(Add report screenshot here)
+
+---
+
+## 💻 Installation
+
+### Clone Repository
 
 ```bash
-git clone https://github.com/ShanmukaNandini/sentiment-analyzer-.git
-cd sentiment-analyzer-
+git clone https://github.com/ShanmukaNandini/product-review-sentiment-analyzer.git
+cd product-review-sentiment-analyzer
 ```
 
-### 2. Backend Setup
-
-Navigate to the backend directory:
+### Backend Setup
 
 ```bash
 cd backend
-```
 
-Install dependencies:
+pip install -r requirements.txt
 
-```bash
-pip install flask flask-cors textblob nltk
-```
+python train_model.py
 
-Run the Flask server:
-
-```bash
 python app.py
 ```
 
-The backend will start on:
-
-```
-http://127.0.0.1:5000
-```
-
----
-
-### 3. Frontend Setup
-
-Open another terminal and navigate to the frontend directory:
+### Frontend Setup
 
 ```bash
 cd frontend
-```
 
-Install dependencies:
-
-```bash
 npm install
-```
 
-Start the React application:
-
-```bash
 npm start
 ```
 
-The frontend will run on:
-
-```
-http://localhost:3000
-```
-
 ---
 
-## 🔄 API Endpoint
+## 🎯 Future Enhancements
 
-### Analyze Review
-
-**POST** `/analyze`
-
-Request Body:
-
-```json
-{
-    "review": "I love this product!"
-}
-```
-
-Response:
-
-```json
-{
-    "review": "I love this product!",
-    "polarity": 0.5,
-    "sentiment": "Positive 😃"
-}
-```
-
----
-
-## 🔮 Future Enhancements
-
-- Upload CSV files containing thousands of reviews
-- Batch sentiment analysis for organizations
-- Interactive dashboards and visualizations
-- Downloadable sentiment analysis reports
-- Integration with advanced NLP models such as VADER and BERT
+* Deploy application using Render and Vercel.
+* Add dark mode support.
+* Implement deep learning models such as LSTM and BERT.
+* Add user authentication and history tracking.
 
 ---
 
 ## 👩‍💻 Author
 
-**Vallapureddy Shanmuka Nandini**
+**Shanmuka Nandini**
 
-- GitHub: https://github.com/ShanmukaNandini
-- LinkedIn: Add your LinkedIn profile here
-
----
-
-## 📜 License
-
-This project is open-source and available under the MIT License.
+Final Year B.Tech Student passionate about Machine Learning, Artificial Intelligence, and Full Stack Development.
