@@ -120,6 +120,7 @@ google-auth-httplib2==0.3.1
 googleapis-common-protos==1.74.0
 greenlet @ file:///Users/ec2-user/croot/greenlet_1774949556406/work
 groq==1.2.0
+gunicorn==26.0.0
 h11 @ file:///opt/miniconda3/conda-bld/h11_1761931258823/work
 h5py @ file:///Users/ec2-user/croot/h5py_1777905051254/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
