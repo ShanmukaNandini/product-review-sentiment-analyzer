@@ -1,15 +1,27 @@
 # Python
-__pycache__/
+
+**pycache**/
 *.pyc
 venv/
-env/
+
+# Large datasets
+
+backend/Reviews.csv
+backend/reviews.csv
+
+# Generated reports
+
+backend/analysis_report.csv
+
+# Trained models
+
+backend/model/
 
 # React
-node_modules/
-build/
 
-# Environment variables
-.env
+frontend/node_modules/
+frontend/build/
 
 # macOS
-.DS_Storebackend/reviews.csv
+
+.DS_Store

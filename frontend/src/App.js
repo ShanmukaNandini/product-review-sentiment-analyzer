@@ -105,7 +105,12 @@ function App() {
   const [result, setResult] = useState(null);
   const [file, setFile] = useState(null);
   const [summary, setSummary] = useState(null);
-
+  const downloadReport = () => {
+    window.open(
+      'http://127.0.0.1:5000/download-report',
+      '_blank'
+    );
+  };
   // This function runs when the button is clicked
   const analyzeReview = async () => {
     // Check if the user entered anything
@@ -212,11 +217,14 @@ function App() {
       {result && (
         <div style={{ marginTop: '30px', padding: '20px', border: '1px solid #ccc', display: 'inline-block', borderRadius: '10px' }}>
           <h2>Result: {result.sentiment}</h2>
-          <p><strong>Mathematical Polarity Score:</strong> {result.polarity} <br />
-            <small>(-1 is negative, 0 is neutral, 1 is positive)</small></p>
+          <p><strong>Confidence:</strong> {result.confidence}%</p>
+          <p style={{ color: '#666' }}>
+            Prediction generated using Logistic Regression.
+          </p>
         </div>
       )}
       {summary && (
+
         <>
           <div
             style={{
@@ -233,6 +241,23 @@ function App() {
             <p>Positive Reviews: {summary.positive}</p>
             <p>Negative Reviews: {summary.negative}</p>
             <p>Neutral Reviews: {summary.neutral}</p>
+            <p>Average Confidence: {summary.average_confidence}%</p>
+            <br />
+
+            <button
+              onClick={downloadReport}
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#28a745',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                marginTop: '10px'
+              }}
+            >
+              Download Analysis Report
+            </button>
           </div>
 
           <SentimentCharts summary={summary} />
