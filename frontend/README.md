@@ -1,94 +1,113 @@
-# SentiScope - Product Review Sentiment Analyzer
+# 🌟 SentiScope - Product Review Sentiment Analyzer
 
-SentiScope is a full-stack machine learning web application that analyzes product reviews and predicts their sentiment as **Positive**, **Negative**, or **Neutral**.
+SentiScope is a full-stack Machine Learning web application that analyzes product reviews and classifies them as **Positive**, **Negative**, or **Neutral** using **Logistic Regression** and **TF-IDF Vectorization**. The application supports both **single review sentiment prediction** and **bulk CSV sentiment analysis** with downloadable reports.
 
-Built using **React.js**, **Flask**, and **Scikit-learn**, the application supports both single-review predictions and bulk CSV sentiment analysis with downloadable reports and interactive visualizations.
+## 🚀 Live Demo
 
----
-
-## Features
-
-* Analyze individual product reviews instantly
-* Upload CSV datasets containing thousands of reviews
-* Predict sentiments using a Logistic Regression model
-* Display confidence scores for predictions
-* Download detailed CSV analysis reports
-* Interactive dashboard with sentiment visualizations
-* Automatic review column detection in uploaded datasets
-* Modern responsive user interface
+* **Frontend (Vercel):** https://product-review-sentiment-analyzer.vercel.app
+* **Backend API (Render):** https://product-review-sentiment-analyzer.onrender.com
 
 ---
 
-## Tech Stack
+## 📸 Screenshots
+
+### Single Review Analysis
+
+*Add a screenshot here*
+
+### Bulk CSV Analysis Dashboard
+
+*Add a screenshot here*
+
+### Sentiment Distribution Charts
+
+*Add a screenshot here*
+
+---
+
+## ✨ Features
+
+* 🔍 Real-time sentiment analysis for individual product reviews
+* 📊 Bulk CSV sentiment analysis (supports up to 5,000 reviews)
+* 📈 Interactive visualizations using Pie Charts and Bar Charts
+* 📥 Downloadable CSV sentiment reports
+* 🎯 Confidence score for each prediction
+* ☁️ Fully deployed frontend and backend applications
+* 🎨 Modern and responsive user interface
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
 
 * React.js
-* Axios
-* Chart.js
-* CSS
+* Recharts
+* CSS3
 
 ### Backend
 
 * Flask
 * Flask-CORS
 * Pandas
-* Joblib
 
 ### Machine Learning
 
 * Scikit-learn
-* TF-IDF Vectorization
 * Logistic Regression
-* Naive Bayes
-* Linear SVM (model comparison)
+* TF-IDF Vectorization
+* Joblib
+
+### Deployment
+
+* Vercel (Frontend)
+* Render (Backend)
+
+### Version Control
+
+* Git
+* GitHub
 
 ---
 
-## Machine Learning Pipeline
+## 🧠 Machine Learning Pipeline
 
-1. Load Amazon product review dataset
-2. Preprocess review text
-3. Convert text into numerical features using TF-IDF
-4. Train multiple classification models:
-
-   * Logistic Regression
-   * Naive Bayes
-   * Linear SVM
-5. Evaluate model performance
-6. Deploy the best-performing model for predictions
-
-### Model Performance
-
-| Model               | Accuracy |
-| ------------------- | -------- |
-| Logistic Regression | 85.14%   |
-| Naive Bayes         | 80.85%   |
-| Linear SVM          | 85.27%   |
-
-**Selected Model:** Logistic Regression
+1. Collected Amazon product reviews dataset.
+2. Performed data preprocessing and cleaning.
+3. Converted review text into numerical features using **TF-IDF Vectorization**.
+4. Trained a **Logistic Regression** classifier.
+5. Saved the trained model using **Joblib**.
+6. Integrated the model into a Flask REST API.
 
 ---
 
-## Screenshots
+## 📂 Project Structure
 
-### Single Review Analysis
-
-![single review analysis](<Screenshot 2026-06-11 at 4.31.58 PM.png>)
-
-### Bulk CSV Analysis Dashboard
-
-![csv file analysis](<Screenshot 2026-06-11 at 4.32.52 PM.png>)
-
-### Generated CSV Report
-
-![analysis report](<Screenshot 2026-06-11 at 4.33.23 PM.png>)
+```
+product-review-sentiment-analyzer/
+│
+├── backend/
+│   ├── app.py
+│   ├── train_model.py
+│   ├── requirements.txt
+│   ├── model/
+│   │   ├── sentiment_model.pkl
+│   │   └── tfidf_vectorizer.pkl
+│   └── ...
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── ...
+│
+└── README.md
+```
 
 ---
 
-## Installation
+## ⚙️ Installation and Setup
 
-### Clone the Repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/ShanmukaNandini/product-review-sentiment-analyzer.git
@@ -107,7 +126,7 @@ python app.py
 
 Backend runs on:
 
-```text
+```
 http://127.0.0.1:5000
 ```
 
@@ -123,41 +142,42 @@ npm start
 
 Frontend runs on:
 
-```text
+```
 http://localhost:3000
 ```
 
 ---
 
-## CSV Format
+## 📊 Bulk CSV Analysis
 
-The uploaded CSV should contain one of the following columns:
+The application supports CSV files containing review columns such as:
 
-* Review
-* review
-* Text
-* Review Text
+* `Text`
+* `Review`
+* `Review Text`
+* `review`
 
-Example:
-
-| Review                               |
-| ------------------------------------ |
-| This product is amazing!             |
-| Terrible quality and poor packaging. |
+For optimal performance on the deployed version, uploads are limited to **5,000 reviews**.
 
 ---
 
-## Future Improvements
+## 🎯 Future Improvements
 
-* Deploy application using Vercel and Render
-* Add deep learning models (LSTM/BERT)
-* Support additional languages
+* Support for larger datasets using chunk-based processing
+* Background task processing with Celery and Redis
+* Deep Learning models (LSTM/BERT)
 * User authentication and history tracking
+* Docker containerization
 
 ---
 
-## Author
+## 👩‍💻 Author
 
 **Shanmuka Nandini**
 
-B.Tech Computer Science Student | Aspiring AI Engineer
+* GitHub: https://github.com/ShanmukaNandini
+* LinkedIn: linkedin.com/in/shanmuka-vallapureddy
+
+---
+
+⭐ If you found this project useful, please consider giving it a star!
