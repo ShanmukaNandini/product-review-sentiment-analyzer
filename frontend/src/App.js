@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import './App.css';
 
-const API_BASE = 'http://127.0.0.1:5000';
+const API_BASE = 'https://product-review-sentiment-analyzer.onrender.com';
 
 const SENTIMENT_CONFIG = {
   Positive: { color: '#1D9E75', bg: '#E1F5EE', icon: '😄', label: 'Positive' },
