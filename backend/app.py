@@ -59,7 +59,7 @@ def analyze_csv():
 
         df = pd.read_csv(file)
 
-        if len(df) > 100000:
+        if len(df) > 5000:
             return jsonify({
                 'error': 'Please upload a CSV with fewer than 100,000 reviews.'
             }), 400
