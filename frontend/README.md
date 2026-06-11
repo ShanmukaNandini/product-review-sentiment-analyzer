@@ -74,15 +74,15 @@ Built using **React.js**, **Flask**, and **Scikit-learn**, the application suppo
 
 ### Single Review Analysis
 
-![alt text](<Screenshot 2026-06-11 at 4.31.58 PM.png>)
+![single review analysis](<Screenshot 2026-06-11 at 4.31.58 PM.png>)
 
 ### Bulk CSV Analysis Dashboard
 
-![alt text](<Screenshot 2026-06-11 at 4.32.52 PM.png>)
+![csv file analysis](<Screenshot 2026-06-11 at 4.32.52 PM.png>)
 
 ### Generated CSV Report
 
-![alt text](<Screenshot 2026-06-11 at 4.33.23 PM.png>)
+![analysis report](<Screenshot 2026-06-11 at 4.33.23 PM.png>)
 
 ---
 
